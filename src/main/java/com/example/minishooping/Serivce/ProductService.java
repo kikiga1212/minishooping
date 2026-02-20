@@ -120,6 +120,23 @@ public class ProductService {
         ProductEntity updated = productRepository.save(product);
         return mapToDTO(updated);
     }
+    //삭제(소프트삭제)
+    public boolean deleteProduct(Long id){
+        ProductEntity product = productRepository.findById(id)
+                .orElseThrow(()->new IllegalStateException("상품이 존재하지 않습니다."));
+
+        product.setStatus("DELETED");
+        productRepository.save(product);
+        return true;
+    }
+    //삭제
+    public boolean hardDeleteProduct(Long id){
+        if(productRepository.existsById(id)) {
+            productRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 
     //Entity->DTO로 변환하는 공용 메소드
     private ProductDTO mapToDTO(ProductEntity product) {
