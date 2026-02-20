@@ -116,7 +116,7 @@ public class ProductController {
     //재고증가
     @PostMapping("/stock/increase/{id}")
     public String increseStock(@PathVariable Long id, Integer quantity){
-        productService.increseStock(id, quantity);
+        productService.increaseStock(id, quantity);
         return "redirect:/products/"+id;
     }
     //재고감소
@@ -129,7 +129,7 @@ public class ProductController {
             return "redirect:/products/stock/"+id+"?error="+e.getMessage();
         }
     }
-    //카테고리별 상품조회
+
 
 
 }

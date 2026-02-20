@@ -110,13 +110,11 @@ public class ProductService {
         return mapToDTO(updated);
     }
 
+
     //재고량 증가
-    public ProductDTO increseStock(Long id, Integer quantity){
+    public ProductDTO increaseStock(Long id, Integer quantity) {
         ProductEntity product = productRepository.findById(id)
                 .orElseThrow(()->new IllegalStateException("상품이 존재하지 않습니다."));
-        if( product.getStockQuantity() < quantity ){
-            throw new IllegalStateException("재고가 부족합니다.");
-        }
         product.setStockQuantity(product.getStockQuantity()+quantity);
         ProductEntity updated = productRepository.save(product);
         return mapToDTO(updated);

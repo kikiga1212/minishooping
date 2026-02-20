@@ -81,6 +81,104 @@
     <!-- Main Content -->
     <div id="layoutSidenav_content">
         <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">상품 등록</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a th:href="@{/}">대시보드></a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/products}">상품 목록</a></li>
+                    <li class="breadcrumb-item active">상품 등록</li>
+                </ol>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">상품 등록</h3>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/products/new}" method="post" th:object="${product}">
+                                <div class="form-floating mb-3">
+                                    <input id="name" class="form-control" type="text"
+                                    th:field="*{name}" placeholder="상품명" required>
+                                    <label for="name">상품명</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea id="description" class="form-control"
+                                           th:field="*{description}" placeholder="상품 설명" style="height:100px">
+                                    </textarea>
+                                    <label for="description">상품 설명</label>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <!--step 스핀버튼으로 증가되는 값-->
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <input id="price" class="form-control" type="number"
+                                                   th:field="*{price}" placeholder="가격" step="100.00" min="0" required>
+                                            <label for="price">가격(원)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <input class="form-control" id="stockQuantity" max="999"
+                                                   min="0" placeholder="재고 수량" required th:field="*{stockQuantity}"
+                                                   type="number">
+                                            <label for="stockQuantity">재고 수량</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <select id="category" class="form-select" th:field="*{category}" required>
+                                                <option value="">카테고리 선택</option>
+                                                <option value="전자제품">전자제품</option>
+                                                <option value="의류">의류</option>
+                                                <option value="식품">식품</option>
+                                                <option value="도서">도서</option>
+                                                <option value="생활용품">생활용품</option>
+                                                <option value="스포츠">스포츠</option>
+                                                <option value="뷰티">뷰티</option>
+                                                <option value="기타<">기타</option>
+                                                <!--value는 상황에 따라 문자, 숫자로 구성-->
+                                            </select>
+                                            <label for="category">카테고리</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select id="status" class="form-select" th:field="*{status}">
+                                                <option value="AVAILABLE">판매중</option>
+                                                <option value="SOLD_OUT">품절</option>
+                                                <option value="DISCONTINUED">단종</option>
+                                            </select>
+                                            <label for="status">상태</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input id="imageUrl" class="form-control" type="url" th:field="*{imageUrl}">
+                                    <label for="imageUrl">이미지 URL</label>
+                                    <small class="text-muted">예: https://example.com/image.jpg</small>
+                                </div>
+                                <div class="mt-4 mb-0">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary btn-block" type="submit">
+                                            <i class="fas fa-save"></i>등록하기
+                                        </button>
+                                        <a class="btn btn-secondary btn-block" th:href="@{/products}">
+                                            <i class="fas fa-times"></i>취소
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </main>

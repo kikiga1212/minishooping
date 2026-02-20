@@ -81,6 +81,28 @@
     <!-- Main Content -->
     <div id="layoutSidenav_content">
         <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">상품 목록</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a th:href="@{/}">대시보드</a></li>
+                    <li class="breadcrumb-item active">상품 목록</li>
+                </ol>
+                <!--필터 버튼-->
+                <div class="row mb-3">
+                    <div class="col-lg-12">
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-outline-primary" th:href="@{/products}">전체</a>
+                            <a class="btn btn-outline-success" th:href="@{/products/available}">재고 있음</a>
+                            <!--select로 이용해서 여러 카테고리에서 조회-->
+                            <a class="btn btn-outline-info" th:href="@{/products/category/전자제품}">전자제품</a>
+                            <a class="btn btn-outline-warning" th:href="@{/products/category/의류}">의류</a>
+                            <a class="btn btn-outline-secondary" th:href="@{/products/category/식품}">식품</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
 
         </main>
         <footer class="py-4 bg-light mt-auto">
