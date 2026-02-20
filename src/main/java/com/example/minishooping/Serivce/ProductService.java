@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// 500번오류
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -120,6 +121,18 @@ public class ProductService {
         ProductEntity updated = productRepository.save(product);
         return mapToDTO(updated);
     }
+    //재고량 감소
+    public ProductDTO decreaseStock(Long id, Integer quantity){
+        ProductEntity product = productRepository.findById(id)
+                .orElseThrow(()->new IllegalStateException("상품이 존재하지 않습니다."));
+        if(product.getStockQuantity() < quantity){
+            throw new IllegalArgumentException("재고가 부족합니다.");
+        }
+        product.setStockQuantity(product.getStockQuantity()-quantity);
+        ProductEntity updated = productRepository.save(product);
+        return mapToDTO(updated);
+    }
+
     //삭제(소프트삭제)
     public boolean deleteProduct(Long id){
         ProductEntity product = productRepository.findById(id)
