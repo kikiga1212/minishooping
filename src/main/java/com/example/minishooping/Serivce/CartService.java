@@ -8,8 +8,8 @@ import com.example.minishooping.Repository.CartRepository;
 import com.example.minishooping.Repository.MemberRepository;
 import com.example.minishooping.Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Setter
+@Service
 @RequiredArgsConstructor
 @Transactional
 public class CartService {
