@@ -246,17 +246,47 @@
                                     </div>
                                     <div class="card-body">
                                         <p class="text-muted small mb-3">입고, 반품 등으로 재고를 추가할 때 사용합니다.</p>
-                                        <form th:action="${/products/stock/increase/{id}(id=${product.id})}"
+                                        <form th:action="@{/products/stock/increase/{id}(id=${product.id})}"
                                         method="post">
-                                            <div>
-
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">증가 수량</label>
+                                                <input type="number" class="form-control" id="increaseQty" name="quantity"
+                                                       value="1" min="1" max="9999" required>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-success"
+                                                onclick="return confirm('재고를 증가하시겠습니까')">
+                                                    <i class="fas fa-arrow-up me-1"></i>재고 증가 적용
+                                                </button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6"><!--재고 감소-->
+                            <div class="col-md-6 mb-4"><!--재고 감소-->
+                                <div class="card stock-card decrease h-100">
+                                    <div class="card-header bg-danger bg-opacity-10 text-danger">
+                                        <i class="fas fa-arrow-down me-1"></i>
+                                        <strong>재고 감소</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted small mb-3">판매, 파손 재고조정 등으로 재고를 차감할 때 사용합니다.</p>
+                                        <form th:action="@{/products/stock/decrease/{id}(id=${product.id})}"
+                                              method="post">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold">감소 수량</label>
+                                                <input type="number" class="form-control" id="decreaseQty" name="quantity"
+                                                       value="1" min="1" max="9999" required>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-success"
+                                                        onclick="return confirm('재고를 감소하시겠습니까')">
+                                                    <i class="fas fa-arrow-down me-1"></i>재고 감소 적용
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
