@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CartRepository extends
@@ -19,7 +20,7 @@ public interface CartRepository extends
     List<CartEntity> findByProductId(Long productId);
 
     //회원id와 상품id로 장바구니 항목 조회
-    List<CartEntity> findByMemberIdAndProductId(Long memberId, Long productId);
+    Optional<CartEntity> findByMemberIdAndProductId(Long memberId, Long productId);
 
     //회원id의 장바구니 전체 삭제
     void deleteByMemberId(Long memberId);

@@ -17,7 +17,7 @@ public class CartDTO {
     private LocalDateTime createdAt;//등록일자
 
     //조회시 사용
-    private String numberName;//회원이름
+    private String memberName;//회원이름
     private String productName;//상품명
     private BigDecimal productPrice;//상품가격
     private BigDecimal totalPrice;//총가격
