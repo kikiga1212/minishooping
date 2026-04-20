@@ -1,7 +1,7 @@
 package com.example.minishooping.Controller;
 
 import com.example.minishooping.DTO.MemberDTO;
-import com.example.minishooping.Serivce.MemberService;
+import com.example.minishooping.Service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

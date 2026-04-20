@@ -1,4 +1,4 @@
-package com.example.minishooping.Serivce;
+package com.example.minishooping.Service;
 
 import com.example.minishooping.DTO.CartDTO;
 import com.example.minishooping.Entity.CartEntity;

@@ -1,7 +1,7 @@
 package com.example.minishooping.Controller;
 
 import com.example.minishooping.DTO.CartDTO;
-import com.example.minishooping.Serivce.CartService;
+import com.example.minishooping.Service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
